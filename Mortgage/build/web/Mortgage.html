@@ -1,0 +1,31 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mortgage Calculator</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+       <H2> Enter parameters, then press submit </h2>
+<form action = "basic2.jsp" method="post" name = "inputform" target ="Solution">
+<table>
+<tr><td>Years for the loan : </td><td><input type=text name="years" value="30" size=3></td></tr>
+<tr><td>First principle amount : </td><td>$<input type=text name="beginingprinciple" value="1000.00" size=12></td></tr>
+<tr><td>Last principle amount : </td><td>$<input type=text name="endingprinciple" value="10000.00" size=12></td></tr>
+<tr><td>Principle increment: </td><td>$<input type=text name="principleincrement" value="1000.00" size=12></td></tr>
+<tr><td>First rate amount : </td><td><input type=text name="beginingrate" value="1.0" size=4>%</td></tr>
+<tr><td>Last rate amount : </td><td><input type=text name="endingrate" value="10.0" size=4>%</td></tr>
+<tr><td>Rate increment: </td><td><input type=text name="rateincrement" value="1.0" size=4>%</td></tr>
+</table>
+<input type = "Submit" name = "submitbutton" value = "submit">
+
+<input type = "Reset" name = "resetbutton" value = "reset">
+
+</form>
+<p>
+<iframe name="Solution" width="800" height="400"></IFRAME>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+A)	
+
+INSERT INTO tblAddress (AddressLine1, AddressLine2, City, StateProvince, Country, PostalCode)
+VALUES ('101 Chris O''Corner Blvd.', 'Suite f14ctdecker2727', 'Fort Myers', 'FL', 'US', '33965')
+
+
+INSERT INTO tblAddress (AddressLine1, City, StateProvince, Country, PostalCode)
+VALUES ('333 Chris Hollywood Drive', 'Los Angeles', 'CA', 'US', '90011')
+
+SELECT TOP 5 * FROM tblAddress ORDER BY AddressID DESC
+
+INSERT INTO tblCompany (CompanyName, AccountNo, BillingAddressID, ShippingAddressID, IsCustomer, PaymentMethodID, EmployeeID)
+VALUES ('Chris Decker', 'CHRIS0001', 32524 , 32525 , 'Y', 1, 49)/*Make sure 32524 and 32525 are correct*/
+
+SELECT TOP 5 * FROM tblAddress
+ORDER BY AddressID DESC
+
+SELECT TOP 5 * FROM tblCompany
+ORDER BY CompanyID DESC
+
+B)
+
+BEGIN TRANSACTION T1	
+
+SELECT TOP 7 * FROM tblCompany ORDER BY CompanyID
+
+UPDATE tblCompany SET
+CompanyName = 'Popplers', 
+PaymentMethodID = 5,
+DateLastModified = getdate(),
+EmployeeID = 47
+WHERE CompanyID = 7
+
+SELECT TOP 7 * FROM tblCompany ORDER BY CompanyID
+
+ROLLBACK TRANSACTION T1
+
+C)
+
+BEGIN TRANSACTION T1
+SELECT * FROM tblCompany WHERE CompanyID IN (12, 13, 14) ORDER BY CompanyID
+
+DELETE FROM tblCompany WHERE CompanyID = 13
+
+SELECT * FROM tblCompany WHERE CompanyID IN (12, 13, 14) ORDER BY CompanyID
+ROLLBACK TRANSACTION T1
+
+D)
+
+SELECT EmployeeID, Lastname + ', ' + Firstname as EmployeeFullName, tblJobPosition.JobpositionID, JobTitle
+FROM tblEmployee
+INNER JOIN tblJobPosition ON tblJobPosition.JobPositionID = tblEmployee.JobPositionId
+WHERE EmployeeID = 49
+
+E)
+
+SELECT CompanyID, CompanyName, AccountNo, tblPaymentMethod.PaymentMethodID, PaymentMethod, tblShipping.AddressID, tblShipping.AddressLine1,  tblShipping.AddressLine2, tblShipping.City, tblShipping.StateProvince, tblShipping.Country, tblShipping.PostalCode
+FROM tblCompany
+INNER JOIN tblPaymentMethod ON tblPaymentMethod.PaymentMethodID = tblCompany.PaymentMethodID
+INNER JOIN tblAddress tblShipping ON tblShipping.AddressID = tblCompany.ShippingAddressID
+WHERE CompanyID = 2
+
+F)
+
+SELECT tblCustomerOrder.OrderNo, tblProduct.ProductCode, ProductName, CurrentStandardUnitPrice, UnitPriceCharged, QuantityOrdered, DiscountRate, ROUND((UnitPriceCharged * QuantityOrdered) - ((UnitPriceCharged * QuantityOrdered) * DiscountRate), 2) AS Total$
+FROM tblCustomerOrder
+INNER JOIN tblOrderLine ON tblOrderLine.OrderNo = tblCustomerOrder.OrderNo
+INNER JOIN tblProduct ON tblOrderLine.ProductCode = tblProduct.ProductCode
+WHERE tblOrderLine.OrderNo = 610
+ORDER BY tblProduct.ProductCode
+
+G)
+
+SELECT tblProduct.ProductCode, tblProduct.ProductName, tblProduct.CurrentStandardUnitPrice, tblProduct.QuantityOnHand, SUM(tblOrderLine.QuantityOrdered) AS TotalQuantityOrderedButNotShipped, (tblProduct.QuantityOnHand - SUM(tblOrderLine.QuantityOrdered)) AS QuantityAvailable
+FROM tblProduct
+INNER JOIN tblOrderLine ON tblOrderLine.ProductCode = tblProduct.ProductCode
+WHERE tblOrderLine.DateShipped IS NULL
+GROUP BY tblProduct.ProductCode, tblProduct.ProductName, tblProduct.CurrentStandardUnitPrice, tblProduct.QuantityOnHand
+ORDER BY QuantityAvailable  
+
+H)
+
+SELECT tblCompany.CompanyID, tblCompany.CompanyName, tblCustomerOrder.OrderNo
+FROM tblCompany
+LEFT JOIN tblCustomerOrder ON tblCustomerOrder.CompanyID = tblCompany.CompanyID
+WHERE tblCustomerOrder.OrderNo IS NULL
+ORDER BY CompanyName
+
+I)
+
+SELECT tblCompany.CompanyID, tblCompany.CompanyName
+FROM  tblCompany
+WHERE CompanyID NOT IN (SELECT CompanyID FROM tblCustomerOrder)
+ORDER BY CompanyName
+
+J)
+
+SELECT e.EmployeeID, e.Firstname + ' ' + e.Lastname AS EmployeeFullName, e.JobPositionID, s.EmployeeID, s.FirstName + ' ' + s.LastName AS SuperVisorFullName, s.JobPositionID
+FROM tblEmployee e 
+LEFT OUTER JOIN tblEmployee s ON e.SupervisorID = s.EmployeeID
+ORDER BY s.EmployeeID, e.Lastname

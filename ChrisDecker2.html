@@ -1,0 +1,44 @@
+<html>
+<head>
+<script type="text/javascript">
+  var itemnum = prompt("Please enter the total number of items you wish to buy."); //This is the step that asks the user how many items they wish to buy.
+  var itemprice;
+  var sum = 0;
+  var tax = 1.07;
+  var count = 1;
+  while(count <= itemnum)
+   {
+    itemprice = parseFloat(prompt("Please enter the price of the item.")); //This is the step that asks the user for the price of the item.
+    if(itemprice<0) //This is the step that tells the user if they entered in a negative item price and forces them to reenter the correct price.
+     {
+      alert("The price you entered was negative! Please reenter the correct price of the item.");
+     }
+    else if(itemprice==0) //This is the step that tells the user if they entered in an item price of $0.00 and forces them to reenter the correct price.
+     {
+      alert("The price you entered was $0.00. Please reenter the correct price of the item.");
+     }
+    else if(isNaN(itemprice)==true) //This step checks if the item price is not a number and if it is not then it tells the user a price for one of the items was not entered and forces them to reenter the correct price.
+     {
+      alert("A price for one of the items was not entered. Please enter the price now.");
+     }
+    else 
+     {
+      sum = sum + itemprice; //This is the step where the item prices are added together and stored.
+      count++;
+     }
+   }
+  var total = sum * tax; //This is the step where the tax is calculated into the sum of the item prices.
+  var roundedtotal = total.toFixed(2); //This step rounds the total to two decimal places.
+  if(roundedtotal <= 0)
+   {
+    alert("Nothing purchased!");
+   }
+  else
+   {
+    document.write("The total is: " + roundedtotal + "."); //This is the step that prints the total amount owed by the cumstomer.
+   }
+</script>
+</head>
+<body>
+</body>
+</html>

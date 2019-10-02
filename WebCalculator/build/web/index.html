@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Web Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Web Calculator</h2>
+        <form action="Exception.jsp" method="get">
+            <table>
+                <tr>
+                    <th>X</th>
+                    <td><input type="text" name="xfield"></td>
+                </tr>
+                <tr>
+                    <th>Y</th>
+                    <td><input type="text" name="yfield"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value=" + " name="function">
+                        <input type="submit" value=" - " name="function">
+                        <input type="submit" value=" * " name="function">
+                        <input type="submit" value=" / " name="function">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <h2>Result</h2>
+        <iframe name="display" height="350" width="500"> </iframe>
+    </body>
+</html>

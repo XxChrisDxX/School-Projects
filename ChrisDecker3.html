@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+  var grade = parseInt(prompt("Please enter a grade or type -1 to exit at any prompt to exit."));
+  var count = 0;
+  var average = 0;
+  var passcount = 0;
+  while(grade != -1)
+   {
+    if(grade > 65)
+     {
+      document.write(grade + " Pass<br />");
+      average = average + grade;
+      passcount++;
+     }
+    else
+     {
+      document.write(grade + " Fail<br />");
+     }
+    grade = parseInt(prompt("Please enter a grade."));
+    count++;
+   }
+  document.write("Total grades: " + count + ".<br />");
+  if(average != 0)
+   {
+    document.write("Average passing grade: " + (average/passcount) + ".");
+   }
+</script>
+</head>
+<body>
+</body>
+</html>
