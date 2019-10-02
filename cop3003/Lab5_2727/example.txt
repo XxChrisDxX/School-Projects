@@ -1,0 +1,7 @@
+Input:     timeout score basketball basketball basketball score 
+wordList:  timeout score basketball basketball basketball score 
+wordSet:   timeout score basketball 
+
+entryList: <timeout, 1>, <score, 2>, <basketball, 3>
+
+sorted entryList: basketball, score, timeout

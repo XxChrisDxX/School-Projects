@@ -1,0 +1,112 @@
+h1=987654321
+h2=234567890
+h1 is not equal to h2.
+h1 is greater than h2.
+h1 is greater than or equal to h2.
+h1.add(h2);
+h1=1222222211
+h1.subtract(h2);
+h1.subtract(h2);
+h1=753086431
+h1.add(h2);
+h1.multiply(h2);
+h1=231671990126352690
+
+h1=987654321
+h2=-234567890
+h1 is not equal to h2.
+h1 is greater than h2.
+h1 is greater than or equal to h2.
+h1.add(h2);
+h1=753086431
+h1.subtract(h2);
+h1.subtract(h2);
+h1=1222222211
+h1.add(h2);
+h1.multiply(h2);
+h1=-231671990126352690
+
+h1=-987654321
+h2=234567890
+h1 is not equal to h2.
+h1 is less than to h2.
+h1 is less than or equal to h2.
+h1.add(h2);
+h1=-753086431
+h1.subtract(h2);
+h1.subtract(h2);
+h1=-1222222211
+h1.add(h2);
+h1.multiply(h2);
+h1=-231671990126352690
+
+h1=-987654321
+h2=-234567890
+h1 is not equal to h2.
+h1 is less than to h2.
+h1 is less than or equal to h2.
+h1.add(h2);
+h1=-1222222211
+h1.subtract(h2);
+h1.subtract(h2);
+h1=-753086431
+h1.add(h2);
+h1.multiply(h2);
+h1=231671990126352690
+
+h1=234567890
+h2=987654321
+h1 is not equal to h2.
+h1 is less than to h2.
+h1 is less than or equal to h2.
+h1.add(h2);
+h1=1222222211
+h1.subtract(h2);
+h1.subtract(h2);
+h1=-753086431
+h1.add(h2);
+h1.multiply(h2);
+h1=231671990126352690
+
+h1=234567890
+h2=-987654321
+h1 is not equal to h2.
+h1 is greater than h2.
+h1 is greater than or equal to h2.
+h1.add(h2);
+h1=-753086431
+h1.subtract(h2);
+h1.subtract(h2);
+h1=1222222211
+h1.add(h2);
+h1.multiply(h2);
+h1=-231671990126352690
+
+h1=-234567890
+h2=987654321
+h1 is not equal to h2.
+h1 is less than to h2.
+h1 is less than or equal to h2.
+h1.add(h2);
+h1=753086431
+h1.subtract(h2);
+h1.subtract(h2);
+h1=-1222222211
+h1.add(h2);
+h1.multiply(h2);
+h1=-231671990126352690
+
+h1=-234567890
+h2=-987654321
+h1 is not equal to h2.
+h1 is greater than h2.
+h1 is greater than or equal to h2.
+h1.add(h2);
+h1=-1222222211
+h1.subtract(h2);
+h1.subtract(h2);
+h1=753086431
+h1.add(h2);
+h1.multiply(h2);
+h1=231671990126352690
+
